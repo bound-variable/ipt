@@ -52,9 +52,9 @@
 
 **ipt** (pronounced iPipeTo) introduces the missing cli interactive workflow. It takes any kind of list as an input and uses that list to build an interactive interface to let you select an element from it.
 
-Stop manually dragging your mouse around to copy output data from a terminal, using the **ipt** workflow you can pipe data from a command and select what to copy to clipboard from a convenient visual menu.
+Stop manually dragging your mouse around to copy output data from a terminal, using the **ipt** workflow you can pipe data from a command and select what to copy to the clipboard from a convenient visual menu.
 
-Selected data is also output to _stdout_ allowing for easily composing various workflows - Just create your custom alias!
+Selected data can also output to _stdout_ allowing for easily composing various workflows - Just create your custom alias!
 
 <br />
 <br />
@@ -91,46 +91,46 @@ Selected data is also output to _stdout_ allowing for easily composing various w
 
 ### Select multiple items
 
-The `-m` or `--multiple` flag allows you to select many items out of the interactive list instead of the standard "pick one" behavior.
+The `-m` or `--multiple` option allows you to select multiple items from the interactive list instead of the standard "pick one" behavior.
 
 ### Fuzzysearch (autocomplete mode)
 
-Using `-a` or `--autocomplete` option switchs the behavior of the interactive list to that of a fuzzysearch (or autocomplete) where options are narrowed as you type.
+Using the `-a` or `--autocomplete` option switchs the behavior of the interactive list to that of a fuzzysearch (or autocomplete) where the list of available selections narrows down as you type.
 
 ### Extract path from result
 
-A convenient option that helps extract file system path values out of the selected item, very useful when manipulating verbose output. Use `-p` or `--extract-path` options.
+A convenient option that helps extract file system path values out of the selected item. It's very useful when manipulating verbose output. Use the `-p` or `--extract-path` option.
 
 ### Input prompt
 
-Use the `-i` or `--input` option in order to use **ipt** as a simple input prompt, default values can be set using standard input or the `--default` argument.
+Use the `-i` or `--input` option in order to use **ipt** as a simple input prompt. Default values can be set using standard input or the `--default` argument.
 
 ### Copy to clipboard
 
-The `-c` or `--copy` option allows you to copy the selected item value to clipboard. Makes for useful workflows where you may need that value somewhere else such as out of the terminal or in a manual command to type later.
+The `-c` or `--copy` option allows you to copy the selected item to the clipboard. This makes for useful workflows where you need to copy that selection somewhere else.
 
 ### Customization
 
-Customize your workflow by defining the separator to be used to generate the list (`-s` or `--separator` options), a custom message to display on the interactive interface (`-M` or `--message`) and much more. Make sure to take a look at the [Help](#help) section to learn about all the available options.
+Customize your workflow by defining the separator used to generate the list (`-s` or `--separator` options), or a custom message to display on the interactive interface (`-M` or `--message`). Make sure to take a look at the [Help](#help) section to learn about all the available options.
 
 ### Default selected items
 
-Use the `-D` or `--default` option to determine which item(s) should be selected by default on the interactive list. The `-P` or `--default-separator` also allows for a custom char to be used to split these items (similar to `-s` option).
+Use the `-D` or `--default` option to determine which item(s) should be selected by default on the interactive list. The `-P` or `--default-separator` also allows for a custom character to be used to split these items (similar to the `-s` option).
 
 ### Node.js based
 
-All you need in order to run **ipt** is the [Node.js](https://nodejs.org/en/) runtime and [npm](https://www.npmjs.com/), if you have those you're already all set!
+All you need in order to run **ipt** is the [Node.js](https://nodejs.org/en/) runtime and [npm](https://www.npmjs.com/). If you have those, you're all set!
 
 <br />
 
 ## :mag_right: Examples
 
-The default behavior of **ipt** is to allow for the selection of one item from the interactive list, once selected this item will be output to _stdout_, you can also use `-c` option to copy the result to your clipboard.
+The default behavior of **ipt** is to allow for the selection of one item from the interactive list. Once selected this item will be output to _stdout_. You can also use the `-c` option to copy the result to your clipboard.
 
 
 ### Using Unix pipes to send selected value to next command
 
-Here we get a simple list of branchs `git branch -a`, pipe into `ipt` and pipe the selected item value to `git checkout` to checkout into the selected branch. `xargs` is needed to get the data from standard input and read it as an argument.
+Here we get a simple list of branchs `git branch -a`, pipe those into `ipt`, and pipe the selected item to `git checkout` to checkout the selected branch. `xargs` is needed to get the data from standard input and read it as an argument.
 
 <br />
 
@@ -143,7 +143,7 @@ Here we get a simple list of branchs `git branch -a`, pipe into `ipt` and pipe t
 
 ### Using the multiple choices option
 
-In the following example we list all the files from the folder `ls` and pipe that list into `ipt` only that this time we use the "multiple" flag `-m` that allows for selecting multiple items from a list. The selected items get piped to `trash` that deletes them.
+In the following example, we list all the files from the folder `ls` and pipe that list into `ipt` only that this time we use the "multiple" flag `-m` that allows for selecting multiple items from a list.
 
 <br />
 
@@ -154,11 +154,11 @@ In the following example we list all the files from the folder `ls` and pipe tha
 <br/>
 <br/>
 
-**NOTE:** An ordered multiple choice menu is available when using the `-o` OR `--ordered` option
+**NOTE:** An ordered multiple choice menu is available when using the `-o` OR `--ordered` option.
 
 ### Using file as input data
 
-You can also read a file as source of input data instead of reading from the standard input, here we read from a `TODO` file and redirect the selected items to be written in a `DONE` file.
+You can also read a file as the source of input instead of reading from standard input. Here we read from a `TODO` file and redirect (append) the selected items to be written to a `DONE` file.
 
 <br />
 
@@ -175,6 +175,10 @@ Available on **npm**:
 
 ```sh
 npm install -g ipt
+```
+or
+```sh
+pnpm add -g ipt
 ```
 
 _Keep in mind that you'll need the latest **Node.js** LTS installed!_
